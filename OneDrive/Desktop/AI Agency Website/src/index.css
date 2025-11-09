@@ -1,0 +1,40 @@
+/* stylelint-disable */
+/* eslint-disable */
+/*
+  This file uses Tailwind CSS directives (@tailwind, @apply, @layer) which
+  generic CSS linters don't recognize and will report as "unknown at-rule".
+  We disable stylelint/ESLint for this file to avoid noisy warnings while
+  leaving Tailwind directives intact for PostCSS/Tailwind processing.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Added animation imports and float keyframes for the animated shader and other decorations */
+@import "tw-animate-css";
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
